@@ -56,6 +56,51 @@ class ViewController: UIViewController, UITableViewDataSource {
             print(error)
         }
         print(items)
+        /*
+        let fileURL = URL(fileURLWithPath: url.path)
+        let destinationURL = URL(string: "путь до папки")!
+
+        var request = URLRequest(url: destinationURL)
+        request.httpMethod = "POST"
+        request.setValue("Authorization", forHTTPHeaderField: "OAuth-access-token")
+
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                print("Error: \(error!)")
+                return
+            }
+
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    let uploadLink = json["href"] as! String
+                    var uploadRequest = URLRequest(url: URL(string: uploadLink)!)
+                    uploadRequest.httpMethod = "PUT"
+                    uploadRequest.httpBody = try Data(contentsOf: fileURL)
+
+                    let uploadTask = URLSession.shared.dataTask(with: uploadRequest) { (data, response, error) in
+                        guard error == nil else {
+                            print("Error: \(error!)")
+                            return
+                        }
+
+                        print("File uploaded successfully")
+                    }
+
+                    uploadTask.resume()
+                }
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
+        }
+
+        task.resume()
+        */
+
     }
     
     @objc private func didTapAdd() {
